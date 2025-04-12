@@ -32,6 +32,7 @@ import {
   fetchListTweets,
   getTweetsAndRepliesByUserId,
   getTweetsAndReplies,
+  createCreateTweetRequest,
 } from './tweets';
 import fetch from 'cross-fetch';
 import { RateLimitStrategy } from './rate-limit';
@@ -123,6 +124,29 @@ export class Scraper {
   public async getUserIdByScreenName(screenName: string): Promise<string> {
     const res = await getUserIdByScreenName(screenName, this.auth);
     return this.handleResponse(res);
+  }
+
+  /**
+ * Send a tweet
+ * @param text The text of the tweet
+ * @param tweetId The id of the tweet to reply to
+ * @param mediaData Optional media data
+ * @returns
+ */
+
+  async sendTweet(
+    text: string,
+    replyToTweetId?: string,
+    // mediaData?: { data: Buffer; mediaType: string }[],
+    hideLinkPreview?: boolean,
+  ) {
+    return await createCreateTweetRequest(
+      text,
+      this.auth,
+      replyToTweetId,
+      // mediaData,
+      hideLinkPreview,
+    );
   }
 
   /**

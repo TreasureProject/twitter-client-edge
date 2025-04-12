@@ -335,3 +335,17 @@ test('scraper can get liked tweets', async () => {
   expect(tweet.done).toBeFalsy();
   expect(tweet.value?.id).not.toBeUndefined();
 });
+
+test('sendTweet successfully sends a tweet', async () => {
+  const scraper = await getScraper();
+  const draftText = 'Core updated on ' + Date.now().toString();
+
+  const result = await scraper.sendTweet(draftText);
+  console.log('Send tweet result:', result);
+
+  const replyResult = await scraper.sendTweet(
+    'Ignore this',
+    '1430277451452751874',
+  );
+  console.log('Send reply result:', replyResult);
+});
