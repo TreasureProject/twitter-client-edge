@@ -1515,9 +1515,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@the-convocation/twitter-scraper@workspace:.":
+"@treasure-dev/twitter-scraper@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@the-convocation/twitter-scraper@workspace:."
+  resolution: "@treasure-dev/twitter-scraper@workspace:."
   dependencies:
     "@commitlint/cli": "npm:^17.6.3"
     "@commitlint/config-conventional": "npm:^17.6.3"
